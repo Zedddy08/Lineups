@@ -358,5 +358,17 @@ if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("sw.js").catch(() => {
       /* offline caching is a nice-to-have, never block the app on it */
     });
+
+    // When a NEW service worker takes over (a fresh deploy landed since
+    // this page was opened), reload automatically instead of leaving the
+    // page silently running old JS against new data — this is the exact
+    // "stuck spinner, worked fine when there were fewer lineups" bug
+    // class. reloading is guarded so it only ever fires once per page.
+    let reloaded = false;
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if (reloaded) return;
+      reloaded = true;
+      location.reload();
+    });
   });
 }
