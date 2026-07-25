@@ -12,11 +12,22 @@ const BACK = document.getElementById("backBtn");
 
 let DATA = null;
 
+// Bounded fetch — a stale/misbehaving service worker or a dead network
+// should surface as a real error the user can retry, not an infinite
+// spinner. 10s is generous for a small JSON file; if it hasn't resolved
+// by then something's actually wrong.
 async function loadData() {
   if (DATA) return DATA;
-  const res = await fetch("data/lineups.json", { cache: "no-cache" });
-  DATA = await res.json();
-  return DATA;
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 10000);
+  try {
+    const res = await fetch("data/lineups.json", { cache: "no-cache", signal: controller.signal });
+    if (!res.ok) throw new Error(`Data fetch failed: HTTP ${res.status}`);
+    DATA = await res.json();
+    return DATA;
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
 // ---- Small inline icon set (self-made SVG, not sourced from anywhere —
@@ -75,6 +86,17 @@ function renderApp(html) {
 
 function showLoading() {
   APP.innerHTML = `<div class="spinner-wrap"><div class="spinner"></div></div>`;
+}
+
+function showError(err) {
+  console.error("Lineups app error:", err);
+  setHeader("Lineups", false);
+  APP.innerHTML = `
+    <div class="empty">
+      Something didn't load right.<br />
+      <span style="font-size:12px;">${(err && err.message) || "Unknown error"}</span><br /><br />
+      <button class="retryBtn" onclick="location.reload()">Reload</button>
+    </div>`;
 }
 
 // ---- Route handlers -------------------------------------------------
@@ -307,16 +329,23 @@ function renderNotFound() {
 
 // ---- Router -----------------------------------------------------------
 
-function route() {
-  const hash = location.hash.replace(/^#\/?/, "");
-  const parts = hash.split("/").filter(Boolean);
+async function route() {
+  try {
+    const hash = location.hash.replace(/^#\/?/, "");
+    const parts = hash.split("/").filter(Boolean);
 
-  if (parts.length === 0) return renderMapList();
-  if (parts[0] === "map" && parts.length === 2) return renderSideList(parts[1]);
-  if (parts[0] === "map" && parts.length === 3) return renderCalloutList(parts[1], parts[2]);
-  if (parts[0] === "map" && parts.length === 4) return renderLineupList(parts[1], parts[2], parts[3]);
-  if (parts[0] === "lineup" && parts.length === 2) return renderLineupDetail(parts[1]);
-  return renderNotFound();
+    if (parts.length === 0) return await renderMapList();
+    if (parts[0] === "map" && parts.length === 2) return await renderSideList(parts[1]);
+    if (parts[0] === "map" && parts.length === 3) return await renderCalloutList(parts[1], parts[2]);
+    if (parts[0] === "map" && parts.length === 4) return await renderLineupList(parts[1], parts[2], parts[3]);
+    if (parts[0] === "lineup" && parts.length === 2) return await renderLineupDetail(parts[1]);
+    return renderNotFound();
+  } catch (err) {
+    // Whatever failed (data fetch timeout, stale service worker serving a
+    // broken response, anything) — never leave the user staring at a
+    // spinner that will never resolve. Always land somewhere actionable.
+    showError(err);
+  }
 }
 
 BACK.addEventListener("click", () => history.back());
