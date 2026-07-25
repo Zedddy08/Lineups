@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Lineups</title>
+
+  <!-- PWA / "add to home screen" wiring -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0d1117" />
+
+  <!-- iOS-specific: makes "Add to Home Screen" open full-screen, no Safari chrome -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Lineups" />
+  <link rel="apple-touch-icon" href="icons/icon-180.png" />
+  <link rel="icon" href="icons/favicon-32.png" sizes="32x32" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <button id="backBtn" class="backBtn" hidden aria-label="Back">←</button>
+    <h1 id="pageTitle">Lineups</h1>
+  </header>
+
+  <main id="app"></main>
+
+  <script src="app.js"></script>
+</body>
+</html>

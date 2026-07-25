@@ -1,0 +1,114 @@
+{
+  "dust2": {
+    "name": "Dust II",
+    "sides": {
+      "t": {
+        "name": "T Side",
+        "callouts": {
+          "xbox": {
+            "name": "Xbox (Mid)",
+            "lineups": [
+              {
+                "id": "dust2-t-xbox-smoke",
+                "title": "Xbox Smoke",
+                "type": "smoke",
+                "video": "https://www.youtube.com/embed/Bc0WFG-fU4w",
+                "steps": [
+                  "Go to the T Spawn corner with the metal railing.",
+                  "Jump onto the floor section with the railing.",
+                  "Line your crosshair up with the corner of the building above (the 'Xbox' shape).",
+                  "Jump-throw."
+                ],
+                "note": "Blocks CT/Short sightlines into Mid — the standard T-side mid-control opener.",
+                "source_note": "Common community lineup, cross-referenced across multiple guides. Video is the authoritative reference — text steps are a quick-glance summary, not a substitute."
+              }
+            ]
+          },
+          "long": {
+            "name": "Long",
+            "lineups": [
+              {
+                "id": "dust2-t-long-cross-smoke",
+                "title": "A Cross / Long Corner Smoke",
+                "type": "smoke",
+                "video": "https://www.youtube.com/embed/HY85NcZMrAg",
+                "steps": [
+                  "Stand behind the car at Long Doors.",
+                  "Aim at the canopy of the tree visible past Long.",
+                  "Jump-throw."
+                ],
+                "note": "Blinds CT spawn's sightline down Long, letting you cross safely to push A from Long.",
+                "source_note": "Common community lineup, cross-referenced across multiple guides. Video is the authoritative reference."
+              }
+            ]
+          },
+          "short": {
+            "name": "Short / Catwalk",
+            "lineups": [
+              {
+                "id": "dust2-t-short-smoke",
+                "title": "A Short Smoke",
+                "type": "smoke",
+                "video": "https://www.youtube.com/embed/zVEpZGurofU",
+                "steps": [
+                  "Walk up to the center of the metal gate on Catwalk.",
+                  "Aim at the dot above the window/ledge.",
+                  "Left-click throw (no jump)."
+                ],
+                "note": "Covers A Short so you can push from Catwalk without getting picked off from site.",
+                "source_note": "Common community lineup, cross-referenced across multiple guides. Video is the authoritative reference."
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "inferno": {
+    "name": "Inferno",
+    "sides": {
+      "t": {
+        "name": "T Side",
+        "callouts": {
+          "boiler": {
+            "name": "Boiler (A Execute)",
+            "lineups": [
+              {
+                "id": "inferno-t-boiler-smoke",
+                "title": "Boiler Smoke",
+                "type": "smoke",
+                "video": "https://www.youtube.com/embed/JF9BdvhQwOM",
+                "steps": [
+                  "Stand at T Ramp.",
+                  "Shift one body-width right of the usual CT-smoke throw position.",
+                  "Aim at the upper-right brick edge of the arch.",
+                  "Standard throw (no jump)."
+                ],
+                "note": "Covers the Boiler angle AWPers use to hold A during executes — pair with a CT smoke for a clean dual-smoke A hit.",
+                "source_note": "Common community lineup, cross-referenced across multiple guides. Video is the authoritative reference — treat any specific pro-player attribution or win-rate stats you see elsewhere online as unverified marketing copy, not fact."
+              }
+            ]
+          },
+          "apartments": {
+            "name": "Apartments (Mid)",
+            "lineups": [
+              {
+                "id": "inferno-t-apartments-window-smoke",
+                "title": "Apartments Window Smoke",
+                "type": "smoke",
+                "video": "https://www.youtube.com/embed/bCuck5TrjyU",
+                "steps": [
+                  "Stand against the left wall of T Mid.",
+                  "Place your crosshair just above the window frame of CT-side Apartments.",
+                  "Left-click throw (no jump)."
+                ],
+                "note": "Seals the Apartments window AWP angle so your team can cross Mid safely.",
+                "source_note": "Common community lineup, cross-referenced across multiple guides. Video is the authoritative reference."
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
