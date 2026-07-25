@@ -7,63 +7,942 @@
         "name": "T Side",
         "callouts": {
           "xbox": {
-            "name": "Xbox (Mid)",
+            "name": "XBox",
             "lineups": [
               {
-                "id": "dust2-t-xbox-smoke",
-                "title": "Xbox Smoke",
+                "id": "dust2-t-xbox-from-lower-tunnels",
+                "title": "Lower Tunnels → XBox",
                 "type": "smoke",
-                "video": "https://www.youtube.com/embed/Bc0WFG-fU4w",
-                "steps": [
-                  "Go to the T Spawn corner with the metal railing.",
-                  "Jump onto the floor section with the railing.",
-                  "Line your crosshair up with the corner of the building above (the 'Xbox' shape).",
-                  "Jump-throw."
-                ],
-                "note": "Blocks CT/Short sightlines into Mid — the standard T-side mid-control opener.",
-                "image": "https://assets.csnades.gg/nades/dust2-smoke-Ad1j1yyReH/lineup.webp",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-epau9Q3Dll/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-epau9Q3Dll/lq.mp4",
                 "image_source": "csnades.gg",
-                "source_note": "Common community lineup, cross-referenced across multiple guides. Video is the authoritative reference — text steps are a quick-glance summary, not a substitute."
+                "note": "Left throw from Lower Tunnels."
+              },
+              {
+                "id": "dust2-t-xbox-from-t-spawn-corner",
+                "title": "T Spawn Corner → XBox",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-QUSiBuN0RC/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-QUSiBuN0RC/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from T Spawn Corner."
+              },
+              {
+                "id": "dust2-t-xbox-from-t-spawn",
+                "title": "T Spawn → XBox",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-pXWCQLmYhk/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-pXWCQLmYhk/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from T Spawn."
+              },
+              {
+                "id": "dust2-t-xbox-from-outside-long",
+                "title": "Outside Long → XBox",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-rNJIRUrRfB/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-rNJIRUrRfB/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from Outside Long."
+              },
+              {
+                "id": "dust2-t-xbox-from-top-mid",
+                "title": "Top Mid → XBox",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-mkO4HqnvNi/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-mkO4HqnvNi/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Running left throw from Top Mid."
+              },
+              {
+                "id": "dust2-t-xbox-from-outside-t-spawn",
+                "title": "Outside T Spawn → XBox",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-HgH1nfbqra/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-HgH1nfbqra/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from Outside T Spawn."
+              },
+              {
+                "id": "dust2-t-xbox-from-t-spawn-railing-a",
+                "title": "T Spawn Railing → XBox",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-Ad1j1yyReH/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-Ad1j1yyReH/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from T Spawn Railing."
+              },
+              {
+                "id": "dust2-t-xbox-from-t-spawn-railing-b",
+                "title": "T Spawn Railing → XBox",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-ubTiXKBc2E/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-ubTiXKBc2E/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from T Spawn Railing."
               }
             ]
           },
-          "long": {
-            "name": "Long",
+          "car": {
+            "name": "Car",
             "lineups": [
               {
-                "id": "dust2-t-long-cross-smoke",
-                "title": "A Cross / Long Corner Smoke",
+                "id": "dust2-t-car-from-outside-a-long",
+                "title": "Outside A Long → Car",
                 "type": "smoke",
-                "video": "https://www.youtube.com/embed/HY85NcZMrAg",
-                "steps": [
-                  "Stand behind the car at Long Doors.",
-                  "Aim at the canopy of the tree visible past Long.",
-                  "Jump-throw."
-                ],
-                "note": "Blinds CT spawn's sightline down Long, letting you cross safely to push A from Long.",
-                "image": "https://assets.csnades.gg/nades/dust2-smoke-dBt2lcA3vc/lineup.webp",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-HupX3P0FUE/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-HupX3P0FUE/lq.mp4",
                 "image_source": "csnades.gg",
-                "source_note": "Common community lineup, cross-referenced across multiple guides. Video is the authoritative reference."
+                "note": "Left jump throw from Outside A Long."
+              },
+              {
+                "id": "dust2-t-car-from-long-doors",
+                "title": "Long Doors → Car",
+                "type": "molotov",
+                "image": "https://assets.csnades.gg/nades/dust2-molotov-5DagGMIZVm/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-molotov-5DagGMIZVm/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from Long Doors."
+              }
+            ]
+          },
+          "a-cross": {
+            "name": "A Cross",
+            "lineups": [
+              {
+                "id": "dust2-t-a-cross-from-long-doors",
+                "title": "Long Doors → A Cross",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-dBt2lcA3vc/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-dBt2lcA3vc/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Running left throw from Long Doors."
+              },
+              {
+                "id": "dust2-t-a-cross-from-a-long",
+                "title": "A Long → A Cross",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-KuDym6tvW2/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-KuDym6tvW2/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Running left throw from A Long."
+              },
+              {
+                "id": "dust2-t-a-cross-from-dumpster",
+                "title": "Dumpster → A Cross",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-07WR4yNUt0/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-07WR4yNUt0/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left throw from Dumpster."
+              },
+              {
+                "id": "dust2-t-a-cross-from-long-doors-b",
+                "title": "Long Doors → A Cross",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-N6LQBzQWM5/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-N6LQBzQWM5/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Running left jump throw from Long Doors."
+              }
+            ]
+          },
+          "ct-spawn": {
+            "name": "CT Spawn",
+            "lineups": [
+              {
+                "id": "dust2-t-ct-spawn-from-xbox",
+                "title": "XBox → CT Spawn",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-XMJVOfP5Ca/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-XMJVOfP5Ca/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left throw from XBox."
+              },
+              {
+                "id": "dust2-t-ct-spawn-from-a-ramp",
+                "title": "A Ramp → CT Spawn",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-F9Y4GUxN3x/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-F9Y4GUxN3x/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Crouched stationary left throw from A Ramp."
+              },
+              {
+                "id": "dust2-t-ct-spawn-from-top-mid",
+                "title": "Top Mid → CT Spawn",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-EqBAJgjJJ6/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-EqBAJgjJJ6/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from Top Mid."
               }
             ]
           },
           "short": {
-            "name": "Short / Catwalk",
+            "name": "Short",
             "lineups": [
               {
-                "id": "dust2-t-short-smoke",
-                "title": "A Short Smoke",
+                "id": "dust2-t-short-from-short",
+                "title": "Short → Short",
                 "type": "smoke",
-                "video": "https://www.youtube.com/embed/zVEpZGurofU",
-                "steps": [
-                  "Walk up to the center of the metal gate on Catwalk.",
-                  "Aim at the dot above the window/ledge.",
-                  "Left-click throw (no jump)."
-                ],
-                "note": "Covers A Short so you can push from Catwalk without getting picked off from site.",
-                "image": "https://assets.csnades.gg/nades/dust2-smoke-VdDWeYZRCH/lineup.webp",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-bIBJix167W/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-bIBJix167W/lq.mp4",
                 "image_source": "csnades.gg",
-                "source_note": "Common community lineup, cross-referenced across multiple guides. Video is the authoritative reference."
+                "note": "Left throw from Short."
+              },
+              {
+                "id": "dust2-t-short-from-stairs",
+                "title": "Stairs → Short",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-VdDWeYZRCH/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-VdDWeYZRCH/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left throw from Stairs."
+              },
+              {
+                "id": "dust2-t-short-from-catwalk",
+                "title": "Catwalk → Short",
+                "type": "flash",
+                "image": "https://assets.csnades.gg/nades/dust2-flashbang-WZHm8M4lDM/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-flashbang-WZHm8M4lDM/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Running left jump throw from Catwalk."
+              },
+              {
+                "id": "dust2-t-short-from-lower-tunnels",
+                "title": "Lower Tunnels → Short",
+                "type": "flash",
+                "image": "https://assets.csnades.gg/nades/dust2-flashbang-nfvsRi9mZy/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-flashbang-nfvsRi9mZy/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from Lower Tunnels."
+              },
+              {
+                "id": "dust2-t-short-from-lower-tunnel",
+                "title": "Lower Tunnel → Short",
+                "type": "molotov",
+                "image": "https://assets.csnades.gg/nades/dust2-molotov-OgigK61NYl/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-molotov-OgigK61NYl/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from Lower Tunnel."
+              }
+            ]
+          },
+          "long-corner": {
+            "name": "Long Corner",
+            "lineups": [
+              {
+                "id": "dust2-t-long-corner-from-outside-a-long",
+                "title": "Outside A Long → Long Corner",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-pOy1yKGuae/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-pOy1yKGuae/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left throw from Outside A Long."
+              },
+              {
+                "id": "dust2-t-long-corner-from-t-spawn",
+                "title": "T Spawn → Long Corner",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-bWhSI26gxI/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-bWhSI26gxI/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from T Spawn."
+              }
+            ]
+          },
+          "b-doors": {
+            "name": "B Doors",
+            "lineups": [
+              {
+                "id": "dust2-t-b-doors-from-upper-tunnels-a",
+                "title": "Upper Tunnels → B Doors",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-7KwvY4vQcC/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-7KwvY4vQcC/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left throw from Upper Tunnels."
+              },
+              {
+                "id": "dust2-t-b-doors-from-upper-tunnels-b",
+                "title": "Upper Tunnels → B Doors",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-kNzHMUP7Rq/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-kNzHMUP7Rq/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left throw from Upper Tunnels."
+              },
+              {
+                "id": "dust2-t-b-doors-from-catwalk",
+                "title": "Catwalk → B Doors",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-aUuxroAy3B/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-aUuxroAy3B/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Running left jump throw from Catwalk."
+              },
+              {
+                "id": "dust2-t-b-doors-from-outside-b-tunnels",
+                "title": "Outside B Tunnels → B Doors",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-5AlacnUab0/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-5AlacnUab0/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from Outside B Tunnels."
+              },
+              {
+                "id": "dust2-t-b-doors-from-outside-b-tunnels-b",
+                "title": "Outside B Tunnels → B Doors",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-fPVAopyJik/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-fPVAopyJik/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from Outside B Tunnels."
+              },
+              {
+                "id": "dust2-t-b-doors-from-upper-tunnels-c",
+                "title": "Upper Tunnels → B Doors",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-TcKrR9F9xq/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-TcKrR9F9xq/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left throw from Upper Tunnels."
+              },
+              {
+                "id": "dust2-t-b-doors-from-t-spawn",
+                "title": "T Spawn → B Doors",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-EEI28ebmls/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-EEI28ebmls/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Running left jump throw from T Spawn."
+              }
+            ]
+          },
+          "tunnels-entry": {
+            "name": "Tunnels Entry",
+            "lineups": [
+              {
+                "id": "dust2-t-tunnels-entry-from-upper-tunnels",
+                "title": "Upper Tunnels → Tunnels Entry",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-z131FWWazp/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-z131FWWazp/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left throw from Upper Tunnels."
+              }
+            ]
+          },
+          "b-window": {
+            "name": "B Window",
+            "lineups": [
+              {
+                "id": "dust2-t-b-window-from-outside-b-tunnels",
+                "title": "Outside B Tunnels → B Window",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-MtLiZmb0gQ/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-MtLiZmb0gQ/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from Outside B Tunnels."
+              },
+              {
+                "id": "dust2-t-b-window-from-outside-b-tunnels-b",
+                "title": "Outside B Tunnels → B Window",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-UZ3KLsre7g/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-UZ3KLsre7g/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from Outside B Tunnels."
+              }
+            ]
+          },
+          "b-plat": {
+            "name": "B Plat",
+            "lineups": [
+              {
+                "id": "dust2-t-b-plat-from-upper-tunnels",
+                "title": "Upper Tunnels → B Plat",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-gsFTgCKTfN/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-gsFTgCKTfN/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left throw from Upper Tunnels."
+              }
+            ]
+          },
+          "mid-doors": {
+            "name": "Mid Doors",
+            "lineups": [
+              {
+                "id": "dust2-t-mid-doors-from-t-spawn-railing",
+                "title": "T Spawn Railing → Mid Doors",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-te1QMoqVSu/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-te1QMoqVSu/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from T Spawn Railing."
+              },
+              {
+                "id": "dust2-t-mid-doors-from-t-spawn",
+                "title": "T Spawn → Mid Doors",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-bye3X5vLuZ/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-bye3X5vLuZ/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from T Spawn."
+              },
+              {
+                "id": "dust2-t-mid-doors-from-xbox",
+                "title": "XBox → Mid Doors",
+                "type": "flash",
+                "image": "https://assets.csnades.gg/nades/dust2-flashbang-zEshp8bhmP/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-flashbang-zEshp8bhmP/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left throw from XBox."
+              },
+              {
+                "id": "dust2-t-mid-doors-from-lower-tunnels",
+                "title": "Lower Tunnels → Mid Doors",
+                "type": "molotov",
+                "image": "https://assets.csnades.gg/nades/dust2-molotov-Bsq3la3Gmy/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-molotov-Bsq3la3Gmy/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Running left throw from Lower Tunnels."
+              }
+            ]
+          },
+          "hinge": {
+            "name": "Hinge",
+            "lineups": [
+              {
+                "id": "dust2-t-hinge-from-mid-doors",
+                "title": "Mid Doors → Hinge",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-y2UOSG64Qm/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-y2UOSG64Qm/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Both throw from Mid Doors."
+              }
+            ]
+          },
+          "long-doors-anti-molly": {
+            "name": "Long Doors Anti-Molly",
+            "lineups": [
+              {
+                "id": "dust2-t-long-doors-anti-molly-from-t-spawn",
+                "title": "T Spawn → Long Doors Anti-Molly",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-j7l6L9rYhJ/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-j7l6L9rYhJ/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from T Spawn."
+              }
+            ]
+          },
+          "b-lurk": {
+            "name": "B Lurk",
+            "lineups": [
+              {
+                "id": "dust2-t-b-lurk-from-upper-tunnels",
+                "title": "Upper Tunnels → B Lurk",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-mctcs28uGS/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-mctcs28uGS/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left throw from Upper Tunnels."
+              }
+            ]
+          },
+          "ct-mid": {
+            "name": "CT Mid",
+            "lineups": [
+              {
+                "id": "dust2-t-ct-mid-from-outside-long",
+                "title": "Outside Long → CT Mid",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-MJ5uWbNxSi/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-MJ5uWbNxSi/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Running left jump throw from Outside Long."
+              }
+            ]
+          },
+          "ct-spawn-boost": {
+            "name": "CT Spawn Boost",
+            "lineups": [
+              {
+                "id": "dust2-t-ct-spawn-boost-from-xbox",
+                "title": "XBox → CT Spawn Boost",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-IkLU41rFxM/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-IkLU41rFxM/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from XBox."
+              },
+              {
+                "id": "dust2-t-ct-spawn-boost-from-cat",
+                "title": "Cat → CT Spawn Boost",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-ru9uxKQIpD/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-ru9uxKQIpD/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from Cat."
+              }
+            ]
+          },
+          "window": {
+            "name": "Window",
+            "lineups": [
+              {
+                "id": "dust2-t-window-from-t-spawn",
+                "title": "T Spawn → Window",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-JyNOFqLCgN/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-JyNOFqLCgN/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Walking left jump throw from T Spawn."
+              }
+            ]
+          },
+          "b-site": {
+            "name": "B Site",
+            "lineups": [
+              {
+                "id": "dust2-t-b-site-from-upper-tunnels",
+                "title": "Upper Tunnels → B Site",
+                "type": "flash",
+                "image": "https://assets.csnades.gg/nades/dust2-flashbang-xsMpaKKGvB/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-flashbang-xsMpaKKGvB/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from Upper Tunnels."
+              },
+              {
+                "id": "dust2-t-b-site-from-upper-tunnels-b",
+                "title": "Upper Tunnels → B Site",
+                "type": "flash",
+                "image": "https://assets.csnades.gg/nades/dust2-flashbang-la4c2Ujuhf/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-flashbang-la4c2Ujuhf/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Running left throw from Upper Tunnels."
+              }
+            ]
+          },
+          "a-site": {
+            "name": "A Site",
+            "lineups": [
+              {
+                "id": "dust2-t-a-site-from-a-short",
+                "title": "A Short → A Site",
+                "type": "flash",
+                "image": "https://assets.csnades.gg/nades/dust2-flashbang-1H3gN2pWsa/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-flashbang-1H3gN2pWsa/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from A Short."
+              },
+              {
+                "id": "dust2-t-a-site-from-short",
+                "title": "Short → A Site",
+                "type": "flash",
+                "image": "https://assets.csnades.gg/nades/dust2-flashbang-RjWY4iDvQy/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-flashbang-RjWY4iDvQy/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left throw from Short."
+              }
+            ]
+          },
+          "a-long": {
+            "name": "A Long",
+            "lineups": [
+              {
+                "id": "dust2-t-a-long-from-long-doors",
+                "title": "Long Doors → A Long",
+                "type": "flash",
+                "image": "https://assets.csnades.gg/nades/dust2-flashbang-drgtAQpIBn/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-flashbang-drgtAQpIBn/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left throw from Long Doors."
+              },
+              {
+                "id": "dust2-t-a-long-from-outside-long",
+                "title": "Outside Long → A Long",
+                "type": "flash",
+                "image": "https://assets.csnades.gg/nades/dust2-flashbang-fxo3zoHNk1/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-flashbang-fxo3zoHNk1/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from Outside Long."
+              }
+            ]
+          },
+          "fence": {
+            "name": "Fence",
+            "lineups": [
+              {
+                "id": "dust2-t-fence-from-upper-tunnels",
+                "title": "Upper Tunnels → Fence",
+                "type": "flash",
+                "image": "https://assets.csnades.gg/nades/dust2-flashbang-Vy77dPZOzC/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-flashbang-Vy77dPZOzC/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Running left throw from Upper Tunnels."
+              }
+            ]
+          },
+          "pit": {
+            "name": "Pit",
+            "lineups": [
+              {
+                "id": "dust2-t-pit-from-long-doors",
+                "title": "Long Doors → Pit",
+                "type": "flash",
+                "image": "https://assets.csnades.gg/nades/dust2-flashbang-sjvsIYy5Au/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-flashbang-sjvsIYy5Au/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left throw from Long Doors."
+              }
+            ]
+          },
+          "long-doors": {
+            "name": "Long Doors",
+            "lineups": [
+              {
+                "id": "dust2-t-long-doors-from-outside-long",
+                "title": "Outside Long → Long Doors",
+                "type": "flash",
+                "image": "https://assets.csnades.gg/nades/dust2-flashbang-Tvnq9LcQJl/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-flashbang-Tvnq9LcQJl/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Crouched stationary left throw from Outside Long."
+              }
+            ]
+          },
+          "a-default": {
+            "name": "A Default",
+            "lineups": [
+              {
+                "id": "dust2-t-a-default-from-short",
+                "title": "Short → A Default",
+                "type": "molotov",
+                "image": "https://assets.csnades.gg/nades/dust2-molotov-4WknC6j24U/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-molotov-4WknC6j24U/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Running left jump throw from Short."
+              }
+            ]
+          },
+          "back-plat": {
+            "name": "Back Plat",
+            "lineups": [
+              {
+                "id": "dust2-t-back-plat-from-upper-tunnels",
+                "title": "Upper Tunnels → Back Plat",
+                "type": "molotov",
+                "image": "https://assets.csnades.gg/nades/dust2-molotov-kPIvLos51d/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-molotov-kPIvLos51d/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Running left throw from Upper Tunnels."
+              }
+            ]
+          },
+          "goose": {
+            "name": "Goose",
+            "lineups": [
+              {
+                "id": "dust2-t-goose-from-cat-stairs",
+                "title": "Cat Stairs → Goose",
+                "type": "molotov",
+                "image": "https://assets.csnades.gg/nades/dust2-molotov-x9pmU2MSXn/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-molotov-x9pmU2MSXn/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Running left jump throw from Cat Stairs."
+              }
+            ]
+          },
+          "boost": {
+            "name": "Boost",
+            "lineups": [
+              {
+                "id": "dust2-t-boost-from-upper-tunnels",
+                "title": "Upper Tunnels → Boost",
+                "type": "molotov",
+                "image": "https://assets.csnades.gg/nades/dust2-molotov-jOcFfu5PAM/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-molotov-jOcFfu5PAM/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Running left jump throw from Upper Tunnels."
+              }
+            ]
+          }
+        }
+      },
+      "ct": {
+        "name": "CT Side",
+        "callouts": {
+          "bottom-mid": {
+            "name": "Bottom Mid",
+            "lineups": [
+              {
+                "id": "dust2-ct-bottom-mid-from-ct-mid",
+                "title": "CT Mid → Bottom Mid",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-MrTSxptCeA/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-MrTSxptCeA/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left throw from CT Mid."
+              }
+            ]
+          },
+          "long-doors": {
+            "name": "Long Doors",
+            "lineups": [
+              {
+                "id": "dust2-ct-long-doors-from-car",
+                "title": "Car → Long Doors",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-rvINJHyhOX/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-rvINJHyhOX/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from Car."
+              },
+              {
+                "id": "dust2-ct-long-doors-from-elevator",
+                "title": "Elevator → Long Doors",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-Hmj3j6hIlI/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-Hmj3j6hIlI/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from Elevator."
+              },
+              {
+                "id": "dust2-ct-long-doors-from-car-b",
+                "title": "Car → Long Doors",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-PCVGa66zsT/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-PCVGa66zsT/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left throw from Car."
+              },
+              {
+                "id": "dust2-ct-long-doors-from-long-corner",
+                "title": "Long Corner → Long Doors",
+                "type": "flash",
+                "image": "https://assets.csnades.gg/nades/dust2-flashbang-v3JlOnAaKJ/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-flashbang-v3JlOnAaKJ/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left throw from Long Corner."
+              },
+              {
+                "id": "dust2-ct-long-doors-from-ct-cross",
+                "title": "CT Cross → Long Doors",
+                "type": "flash",
+                "image": "https://assets.csnades.gg/nades/dust2-flashbang-QdybwmCUCl/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-flashbang-QdybwmCUCl/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left throw from CT Cross."
+              }
+            ]
+          },
+          "b-tunnels": {
+            "name": "B Tunnels",
+            "lineups": [
+              {
+                "id": "dust2-ct-b-tunnels-from-ct-mid",
+                "title": "CT Mid → B Tunnels",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-6dZH5zTBd9/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-6dZH5zTBd9/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Walking left jump throw from CT Mid."
+              }
+            ]
+          },
+          "deep-tunnels": {
+            "name": "Deep Tunnels",
+            "lineups": [
+              {
+                "id": "dust2-ct-deep-tunnels-from-b-plat",
+                "title": "B Plat → Deep Tunnels",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-j8TYIGVGmk/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-j8TYIGVGmk/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from B Plat."
+              }
+            ]
+          },
+          "mid-doors": {
+            "name": "Mid Doors",
+            "lineups": [
+              {
+                "id": "dust2-ct-mid-doors-from-ct-spawn",
+                "title": "CT Spawn → Mid Doors",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-U4Lv2Xi4iS/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-U4Lv2Xi4iS/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Running left throw from CT Spawn."
+              }
+            ]
+          },
+          "ct-mid": {
+            "name": "CT Mid",
+            "lineups": [
+              {
+                "id": "dust2-ct-ct-mid-from-ct-spawn",
+                "title": "CT Spawn → CT Mid",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-2dOJ9MUZUf/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-2dOJ9MUZUf/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left throw from CT Spawn."
+              }
+            ]
+          },
+          "suicide": {
+            "name": "Suicide",
+            "lineups": [
+              {
+                "id": "dust2-ct-suicide-from-ct-mid",
+                "title": "CT Mid → Suicide",
+                "type": "smoke",
+                "image": "https://assets.csnades.gg/nades/dust2-smoke-tgN5CrW541/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-smoke-tgN5CrW541/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from CT Mid."
+              }
+            ]
+          },
+          "b-site": {
+            "name": "B Site",
+            "lineups": [
+              {
+                "id": "dust2-ct-b-site-from-ct-mid",
+                "title": "CT Mid → B Site",
+                "type": "flash",
+                "image": "https://assets.csnades.gg/nades/dust2-flashbang-hvcI73urxV/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-flashbang-hvcI73urxV/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left throw from CT Mid."
+              }
+            ]
+          },
+          "a-site": {
+            "name": "A Site",
+            "lineups": [
+              {
+                "id": "dust2-ct-a-site-from-ct-spawn",
+                "title": "CT Spawn → A Site",
+                "type": "flash",
+                "image": "https://assets.csnades.gg/nades/dust2-flashbang-e1cTNrW5F0/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-flashbang-e1cTNrW5F0/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left throw from CT Spawn."
+              }
+            ]
+          },
+          "a-long": {
+            "name": "A Long",
+            "lineups": [
+              {
+                "id": "dust2-ct-a-long-from-ct-cross",
+                "title": "CT Cross → A Long",
+                "type": "flash",
+                "image": "https://assets.csnades.gg/nades/dust2-flashbang-zGlAo2SYvZ/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-flashbang-zGlAo2SYvZ/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Running left throw from CT Cross."
+              }
+            ]
+          },
+          "short": {
+            "name": "Short",
+            "lineups": [
+              {
+                "id": "dust2-ct-short-from-short",
+                "title": "Short → Short",
+                "type": "flash",
+                "image": "https://assets.csnades.gg/nades/dust2-flashbang-uPDfUA9aOK/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-flashbang-uPDfUA9aOK/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left throw from Short."
+              },
+              {
+                "id": "dust2-ct-short-from-goose",
+                "title": "Goose → Short",
+                "type": "molotov",
+                "image": "https://assets.csnades.gg/nades/dust2-molotov-4rh5RIwuaq/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-molotov-4rh5RIwuaq/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from Goose."
+              }
+            ]
+          },
+          "back-plat": {
+            "name": "Back Plat",
+            "lineups": [
+              {
+                "id": "dust2-ct-back-plat-from-outside-b-doors",
+                "title": "Outside B Doors → Back Plat",
+                "type": "molotov",
+                "image": "https://assets.csnades.gg/nades/dust2-molotov-DIjFhKQExG/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-molotov-DIjFhKQExG/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from Outside B Doors."
+              }
+            ]
+          },
+          "under-b-window": {
+            "name": "Under B Window",
+            "lineups": [
+              {
+                "id": "dust2-ct-under-b-window-from-scaffolding",
+                "title": "Scaffolding → Under B Window",
+                "type": "molotov",
+                "image": "https://assets.csnades.gg/nades/dust2-molotov-LqvfCjoIgj/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-molotov-LqvfCjoIgj/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from Scaffolding."
+              }
+            ]
+          },
+          "catwalk": {
+            "name": "Catwalk",
+            "lineups": [
+              {
+                "id": "dust2-ct-catwalk-from-mid-doors",
+                "title": "Mid Doors → Catwalk",
+                "type": "molotov",
+                "image": "https://assets.csnades.gg/nades/dust2-molotov-XvKJUZZRT2/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-molotov-XvKJUZZRT2/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Left jump throw from Mid Doors."
+              }
+            ]
+          },
+          "dumpster": {
+            "name": "Dumpster",
+            "lineups": [
+              {
+                "id": "dust2-ct-dumpster-from-long-corner",
+                "title": "Long Corner → Dumpster",
+                "type": "molotov",
+                "image": "https://assets.csnades.gg/nades/dust2-molotov-QNOu7Xt7kR/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-molotov-QNOu7Xt7kR/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Running left throw from Long Corner."
+              }
+            ]
+          },
+          "plat-box": {
+            "name": "Plat Box",
+            "lineups": [
+              {
+                "id": "dust2-ct-plat-box-from-b-doors",
+                "title": "B Doors → Plat Box",
+                "type": "molotov",
+                "image": "https://assets.csnades.gg/nades/dust2-molotov-djcEUtk15C/lineup.webp",
+                "gif": "https://assets.csnades.gg/nades/dust2-molotov-djcEUtk15C/lq.mp4",
+                "image_source": "csnades.gg",
+                "note": "Both jump throw from B Doors."
               }
             ]
           }

@@ -32,9 +32,11 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   padding-bottom: env(safe-area-inset-bottom);
-  /* subtle radial glow behind everything — depth without a busy background */
+  /* layered radial glows + a faint vignette — depth without a busy/distracting background */
   background:
-    radial-gradient(1200px 600px at 50% -10%, rgba(222, 165, 40, 0.06), transparent 60%),
+    radial-gradient(1000px 500px at 15% -8%, rgba(222, 165, 40, 0.08), transparent 55%),
+    radial-gradient(900px 500px at 100% 10%, rgba(80, 130, 220, 0.05), transparent 55%),
+    radial-gradient(1200px 800px at 50% 120%, rgba(0, 0, 0, 0.4), transparent 60%),
     var(--bg);
   background-attachment: fixed;
 }
@@ -70,6 +72,24 @@ body {
   transition: transform 0.08s ease, background 0.12s ease;
 }
 .backBtn:active { background: var(--bg-card-hover); transform: scale(0.92); }
+
+/* ---- Breadcrumb trail: tap any earlier segment to jump straight there --- */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+  font-size: 13px;
+}
+.breadcrumb a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-weight: 600;
+}
+.breadcrumb a:active { color: var(--accent); }
+.breadcrumb .sep { color: var(--border); }
+.breadcrumb .current { color: var(--text); font-weight: 700; }
 
 #pageTitle {
   font-size: 20px;
@@ -305,13 +325,44 @@ body {
   justify-content: center;
 }
 
-.lineup-image {
-  display: block;
-  width: 100%;
+/* ---- Picture guide: the real screenshot/gif IS the guide — tap to zoom --- */
+.media-frame {
+  position: relative;
   border-radius: 14px;
+  overflow: hidden;
   border: 1px solid var(--border-soft);
   box-shadow: var(--shadow-card);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  cursor: zoom-in;
+}
+.media-frame img,
+.media-frame video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.media-frame .zoom-hint {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background: rgba(10, 13, 18, 0.7);
+  backdrop-filter: blur(6px);
+  color: var(--text);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 9px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  pointer-events: none;
+}
+.media-frame .zoom-hint svg { width: 12px; height: 12px; }
+.media-attribution {
+  font-size: 11px;
+  color: var(--text-dim);
+  text-align: right;
+  margin: -2px 0 10px;
 }
 
 .picture-slot {
@@ -327,6 +378,44 @@ body {
   text-align: center;
   padding: 12px;
   margin-bottom: 14px;
+}
+
+/* ---- Lightbox: fullscreen tap-to-zoom viewer for the picture-guide --- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(5, 6, 9, 0.94);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: env(safe-area-inset-top) 16px env(safe-area-inset-bottom);
+  animation: lightboxIn 0.18s ease;
+}
+@keyframes lightboxIn { from { opacity: 0; } to { opacity: 1; } }
+.lightbox img {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  touch-action: pinch-zoom;
+}
+.lightbox-close {
+  position: absolute;
+  top: calc(16px + env(safe-area-inset-top));
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid var(--border-soft);
+  color: var(--text);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .source-note {

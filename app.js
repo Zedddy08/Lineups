@@ -1,8 +1,10 @@
 // Lineups — vanilla JS hash-router SPA. No build step, no dependencies,
 // so it deploys straight to GitHub Pages with zero tooling.
 //
-// Nav flow (per Zed's spec): Map -> Side -> Callout -> Lineup detail
-// (video up top, scrollable picture-guide steps below).
+// Nav flow (per Zed's spec): Map -> Side -> Callout -> Lineup detail.
+// The real screenshot/gif IS the guide (per Zed's correction) — no
+// paraphrased step-text competing with it, just the visual + a short
+// factual note (throw type / positions, not copied prose).
 
 const APP = document.getElementById("app");
 const TITLE = document.getElementById("pageTitle");
@@ -26,6 +28,7 @@ const ICONS = {
   smoke: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="16" r="3.2"/><circle cx="13" cy="13" r="4"/><circle cx="17.5" cy="16.5" r="2.6"/></svg>`,
   flash: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>`,
   molotov: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c2 2.5 3 4.4 3 6.2A3 3 0 0 1 9 8.2C9 6.4 10 4.5 12 2z"/><path d="M8 13a4 4 0 108 0c0-1-1-2-1-2H9s-1 1-1 2z"/></svg>`,
+  zoom: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg>`,
 };
 function icon(name) { return ICONS[name] || ""; }
 
@@ -47,6 +50,18 @@ function card(href, title, sub, iconName) {
         ${sub ? `<div class="card-sub">${sub}</div>` : ""}
       </div>
     </a>`;
+}
+
+// segments: [{label, href}] — last one renders as plain (current) text
+function breadcrumb(segments) {
+  if (!segments.length) return "";
+  const parts = segments.map((s, i) => {
+    const isLast = i === segments.length - 1;
+    return isLast
+      ? `<span class="current">${s.label}</span>`
+      : `<a href="${s.href}">${s.label}</a><span class="sep">/</span>`;
+  });
+  return `<nav class="breadcrumb">${parts.join("")}</nav>`;
 }
 
 function renderApp(html) {
@@ -96,11 +111,15 @@ async function renderSideList(mapId) {
   if (!map) return renderNotFound();
   setHeader(map.name, true);
   const sides = Object.entries(map.sides || {});
+  const crumbs = breadcrumb([
+    { label: "Maps", href: "#/" },
+    { label: map.name },
+  ]);
   if (!sides.length) {
-    renderApp(`<div class="empty">No sides added for ${map.name} yet.</div>`);
+    renderApp(`${crumbs}<div class="empty">No sides added for ${map.name} yet.</div>`);
     return;
   }
-  renderApp(`<div class="grid">
+  renderApp(`${crumbs}<div class="grid">
       ${sides.map(([id, s]) => card(`#/map/${mapId}/${id}`, s.name, null, "side")).join("")}
     </div>`);
 }
@@ -113,11 +132,16 @@ async function renderCalloutList(mapId, sideId) {
   if (!side) return renderNotFound();
   setHeader(`${map.name} — ${side.name}`, true);
   const callouts = Object.entries(side.callouts || {});
+  const crumbs = breadcrumb([
+    { label: "Maps", href: "#/" },
+    { label: map.name, href: `#/map/${mapId}` },
+    { label: side.name },
+  ]);
   if (!callouts.length) {
-    renderApp(`<div class="empty">No callouts added yet.</div>`);
+    renderApp(`${crumbs}<div class="empty">No callouts added yet.</div>`);
     return;
   }
-  renderApp(`<div class="grid">
+  renderApp(`${crumbs}<div class="grid">
       ${callouts
         .map(([id, c]) => {
           const count = (c.lineups || []).length;
@@ -148,11 +172,17 @@ async function renderLineupList(mapId, sideId, calloutId) {
   }
 
   setHeader(`${map.name} — ${callout.name}`, true);
+  const crumbs = breadcrumb([
+    { label: "Maps", href: "#/" },
+    { label: map.name, href: `#/map/${mapId}` },
+    { label: side.name, href: `#/map/${mapId}/${sideId}` },
+    { label: callout.name },
+  ]);
   if (!lineups.length) {
-    renderApp(`<div class="empty">No lineups added for ${callout.name} yet.</div>`);
+    renderApp(`${crumbs}<div class="empty">No lineups added for ${callout.name} yet.</div>`);
     return;
   }
-  renderApp(`<div class="list">
+  renderApp(`${crumbs}<div class="list">
       ${lineups
         .map(
           (l) => `<a class="card" href="#/lineup/${l.id}">
@@ -167,12 +197,14 @@ async function renderLineupList(mapId, sideId, calloutId) {
     </div>`);
 }
 
-function findLineup(data, lineupId) {
-  for (const map of Object.values(data)) {
-    for (const side of Object.values(map.sides || {})) {
-      for (const callout of Object.values(side.callouts || {})) {
+function findLineupPath(data, lineupId) {
+  for (const [mapId, map] of Object.entries(data)) {
+    for (const [sideId, side] of Object.entries(map.sides || {})) {
+      for (const [calloutId, callout] of Object.entries(side.callouts || {})) {
         for (const l of callout.lineups || []) {
-          if (l.id === lineupId) return l;
+          if (l.id === lineupId) {
+            return { map, mapId, side, sideId, callout, calloutId, lineup: l };
+          }
         }
       }
     }
@@ -188,48 +220,83 @@ function youtubeEmbedSrc(url) {
   return url;
 }
 
-// Picture-guide images are hotlinked (referenced from the source site's own
-// URL, never downloaded/rehosted into this repo) — see README's "Content
-// sourcing note". onerror swaps in the placeholder if the source ever
-// moves/deletes the image, since a hotlink has no uptime guarantee.
+// The picture guide IS the guide now — a real screenshot or a looping clip
+// (csnades.gg's "hover gif" effect, actually a muted looping mp4 — more
+// efficient than a real .gif, same visual result), tap to zoom into the
+// full still image. No paraphrased step text alongside it; that read as
+// redundant/copied-feeling once the real visual is right there. Everything
+// here is hotlinked (not downloaded into this repo) — see README.
 function renderPictureGuide(l) {
-  if (!l.image) {
-    return `<div class="picture-slot">📸 Screenshot slot — drop your own in-game capture here for this step</div>`;
+  if (l.gif) {
+    return `
+      <div class="media-frame" onclick="openLightbox('${l.image}')">
+        <video src="${l.gif}" autoplay muted loop playsinline preload="metadata"></video>
+        <div class="zoom-hint">${icon("zoom")}Tap to zoom</div>
+      </div>
+      ${l.image_source ? `<div class="media-attribution">${l.image_source}</div>` : ""}
+    `;
   }
-  return `
-    <div class="picture-slot" style="display:none;">📸 Image unavailable right now — the source site may have moved it.</div>
-    <img class="lineup-image" src="${l.image}" alt="${l.title} lineup screenshot" loading="lazy"
-      onerror="this.style.display='none'; this.previousElementSibling.style.display='flex';" />
-    ${l.image_source ? `<div class="source-note">Screenshot via ${l.image_source} (hotlinked, not copied).</div>` : ""}
-  `;
+  if (l.image) {
+    return `
+      <div class="picture-slot" style="display:none;">📸 Image unavailable right now — the source may have moved it.</div>
+      <div class="media-frame" onclick="openLightbox('${l.image}')">
+        <img src="${l.image}" alt="${l.title} lineup screenshot" loading="lazy"
+          onerror="this.closest('.media-frame').style.display='none'; this.closest('.media-frame').previousElementSibling.style.display='flex';" />
+        <div class="zoom-hint">${icon("zoom")}Tap to zoom</div>
+      </div>
+      ${l.image_source ? `<div class="media-attribution">${l.image_source}</div>` : ""}
+    `;
+  }
+  return `<div class="picture-slot">📸 Screenshot slot — drop your own in-game capture here for this step</div>`;
 }
+
+function openLightbox(imgUrl) {
+  const el = document.createElement("div");
+  el.className = "lightbox";
+  el.innerHTML = `
+    <button class="lightbox-close" aria-label="Close">✕</button>
+    <img src="${imgUrl}" alt="Lineup screenshot, zoomed" />
+  `;
+  el.addEventListener("click", (e) => {
+    if (e.target === el || e.target.classList.contains("lightbox-close")) el.remove();
+  });
+  document.body.appendChild(el);
+}
+window.openLightbox = openLightbox;
 
 async function renderLineupDetail(lineupId) {
   showLoading();
   const data = await loadData();
-  const l = findLineup(data, lineupId);
-  if (!l) return renderNotFound();
+  const found = findLineupPath(data, lineupId);
+  if (!found) return renderNotFound();
+  const { map, mapId, side, sideId, callout, calloutId, lineup: l } = found;
 
   setHeader(l.title, true);
-
-  const stepsHtml = (l.steps || [])
-    .map((s) => `<li>${s}</li>`)
-    .join("");
+  const crumbs = breadcrumb([
+    { label: "Maps", href: "#/" },
+    { label: map.name, href: `#/map/${mapId}` },
+    { label: side.name, href: `#/map/${mapId}/${sideId}` },
+    { label: callout.name, href: `#/map/${mapId}/${sideId}/${calloutId}` },
+    { label: l.title },
+  ]);
 
   renderApp(`
-    <div class="video-wrap">
-      <iframe src="${youtubeEmbedSrc(l.video)}" title="${l.title}"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen loading="lazy"></iframe>
-    </div>
+    ${crumbs}
 
-    ${l.note ? `<div class="note">${l.note}</div>` : ""}
+    ${
+      l.video
+        ? `<div class="video-wrap">
+            <iframe src="${youtubeEmbedSrc(l.video)}" title="${l.title}"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>`
+        : ""
+    }
+
+    ${l.note ? `<div class="note">${typeBadge(l.type)} ${l.note}</div>` : `<div class="note">${typeBadge(l.type)}</div>`}
 
     <div class="section-label">Picture Guide</div>
-    <ol class="steps">${stepsHtml}</ol>
     ${renderPictureGuide(l)}
-
-    ${l.source_note ? `<div class="source-note">${l.source_note}</div>` : ""}
   `);
 }
 
