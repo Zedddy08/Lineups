@@ -141,6 +141,22 @@ function youtubeEmbedSrc(url) {
   return url;
 }
 
+// Picture-guide images are hotlinked (referenced from the source site's own
+// URL, never downloaded/rehosted into this repo) — see README's "Content
+// sourcing note". onerror swaps in the placeholder if the source ever
+// moves/deletes the image, since a hotlink has no uptime guarantee.
+function renderPictureGuide(l) {
+  if (!l.image) {
+    return `<div class="picture-slot">📸 Screenshot slot — drop your own in-game capture here for this step</div>`;
+  }
+  return `
+    <div class="picture-slot" style="display:none;">📸 Image unavailable right now — the source site may have moved it.</div>
+    <img class="lineup-image" src="${l.image}" alt="${l.title} lineup screenshot" loading="lazy"
+      onerror="this.style.display='none'; this.previousElementSibling.style.display='flex';" />
+    ${l.image_source ? `<div class="source-note">Screenshot via ${l.image_source} (hotlinked, not copied).</div>` : ""}
+  `;
+}
+
 async function renderLineupDetail(lineupId) {
   const data = await loadData();
   const l = findLineup(data, lineupId);
@@ -163,7 +179,7 @@ async function renderLineupDetail(lineupId) {
 
     <div class="section-label">Picture Guide</div>
     <ol class="steps">${stepsHtml}</ol>
-    <div class="picture-slot">📸 Screenshot slot — drop your own in-game capture here for this step</div>
+    ${renderPictureGuide(l)}
 
     ${l.source_note ? `<div class="source-note">${l.source_note}</div>` : ""}
   `;

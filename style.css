@@ -183,6 +183,14 @@ body {
   justify-content: center;
 }
 
+.lineup-image {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  margin-bottom: 6px;
+}
+
 .picture-slot {
   aspect-ratio: 16/9;
   border-radius: 12px;
