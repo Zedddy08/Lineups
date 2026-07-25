@@ -17,9 +17,21 @@ async function loadData() {
   return DATA;
 }
 
+// ---- Small inline icon set (self-made SVG, not sourced from anywhere —
+// zero licensing question, crisp at any size, themeable via currentColor) --
+
+const ICONS = {
+  side: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 4.5v9L12 21l-9-4.5v-9L12 3z"/><path d="M12 3v18M3 7.5l9 4.5 9-4.5"/></svg>`,
+  pin: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.1 7-11a7 7 0 10-14 0c0 4.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>`,
+  smoke: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="16" r="3.2"/><circle cx="13" cy="13" r="4"/><circle cx="17.5" cy="16.5" r="2.6"/></svg>`,
+  flash: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>`,
+  molotov: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c2 2.5 3 4.4 3 6.2A3 3 0 0 1 9 8.2C9 6.4 10 4.5 12 2z"/><path d="M8 13a4 4 0 108 0c0-1-1-2-1-2H9s-1 1-1 2z"/></svg>`,
+};
+function icon(name) { return ICONS[name] || ""; }
+
 function typeBadge(type) {
   const label = type.charAt(0).toUpperCase() + type.slice(1);
-  return `<span class="badge ${type}">${label}</span>`;
+  return `<span class="badge ${type}">${icon(type)}${label}</span>`;
 }
 
 function setHeader(title, showBack) {
@@ -27,44 +39,74 @@ function setHeader(title, showBack) {
   BACK.hidden = !showBack;
 }
 
-function card(href, title, sub) {
+function card(href, title, sub, iconName) {
   return `<a class="card" href="${href}">
-      <div class="card-title">${title}</div>
-      ${sub ? `<div class="card-sub">${sub}</div>` : ""}
+      ${iconName ? `<div class="icon-chip">${icon(iconName)}</div>` : ""}
+      <div class="card-body">
+        <div class="card-title">${title}</div>
+        ${sub ? `<div class="card-sub">${sub}</div>` : ""}
+      </div>
     </a>`;
+}
+
+function renderApp(html) {
+  APP.classList.remove("page-enter");
+  APP.innerHTML = html;
+  // restart the animation on every route render, incl. same-class re-triggers
+  void APP.offsetWidth;
+  APP.classList.add("page-enter");
+  window.scrollTo(0, 0);
+}
+
+function showLoading() {
+  APP.innerHTML = `<div class="spinner-wrap"><div class="spinner"></div></div>`;
 }
 
 // ---- Route handlers -------------------------------------------------
 
 async function renderMapList() {
+  showLoading();
   const data = await loadData();
   setHeader("Lineups", false);
   const maps = Object.entries(data);
   if (!maps.length) {
-    APP.innerHTML = `<div class="empty">No maps yet.</div>`;
+    renderApp(`<div class="empty">No maps yet.</div>`);
     return;
   }
-  APP.innerHTML = `<div class="grid">
-      ${maps.map(([id, m]) => card(`#/map/${id}`, m.name)).join("")}
-    </div>`;
+  renderApp(`<div class="map-grid">
+      ${maps
+        .map(
+          ([id, m]) => `<a class="map-card" href="#/map/${id}">
+            ${m.thumbnail ? `<img src="${m.thumbnail}" alt="${m.name}" loading="lazy" />` : ""}
+            <div class="scrim"></div>
+            <div class="label">
+              <div class="map-name">${m.name}</div>
+              <div class="chevron">›</div>
+            </div>
+          </a>`
+        )
+        .join("")}
+    </div>`);
 }
 
 async function renderSideList(mapId) {
+  showLoading();
   const data = await loadData();
   const map = data[mapId];
   if (!map) return renderNotFound();
   setHeader(map.name, true);
   const sides = Object.entries(map.sides || {});
   if (!sides.length) {
-    APP.innerHTML = `<div class="empty">No sides added for ${map.name} yet.</div>`;
+    renderApp(`<div class="empty">No sides added for ${map.name} yet.</div>`);
     return;
   }
-  APP.innerHTML = `<div class="grid">
-      ${sides.map(([id, s]) => card(`#/map/${mapId}/${id}`, s.name)).join("")}
-    </div>`;
+  renderApp(`<div class="grid">
+      ${sides.map(([id, s]) => card(`#/map/${mapId}/${id}`, s.name, null, "side")).join("")}
+    </div>`);
 }
 
 async function renderCalloutList(mapId, sideId) {
+  showLoading();
   const data = await loadData();
   const map = data[mapId];
   const side = map && map.sides && map.sides[sideId];
@@ -72,21 +114,22 @@ async function renderCalloutList(mapId, sideId) {
   setHeader(`${map.name} — ${side.name}`, true);
   const callouts = Object.entries(side.callouts || {});
   if (!callouts.length) {
-    APP.innerHTML = `<div class="empty">No callouts added yet.</div>`;
+    renderApp(`<div class="empty">No callouts added yet.</div>`);
     return;
   }
-  APP.innerHTML = `<div class="grid">
+  renderApp(`<div class="grid">
       ${callouts
         .map(([id, c]) => {
           const count = (c.lineups || []).length;
           return card(
             `#/map/${mapId}/${sideId}/${id}`,
             c.name,
-            `${count} lineup${count === 1 ? "" : "s"}`
+            `${count} lineup${count === 1 ? "" : "s"}`,
+            "pin"
           );
         })
         .join("")}
-    </div>`;
+    </div>`);
 }
 
 async function renderLineupList(mapId, sideId, calloutId) {
@@ -106,18 +149,22 @@ async function renderLineupList(mapId, sideId, calloutId) {
 
   setHeader(`${map.name} — ${callout.name}`, true);
   if (!lineups.length) {
-    APP.innerHTML = `<div class="empty">No lineups added for ${callout.name} yet.</div>`;
+    renderApp(`<div class="empty">No lineups added for ${callout.name} yet.</div>`);
     return;
   }
-  APP.innerHTML = `<div class="list">
+  renderApp(`<div class="list">
       ${lineups
         .map(
           (l) => `<a class="card" href="#/lineup/${l.id}">
-            <div class="card-title">${l.title} ${typeBadge(l.type)}</div>
+            <div class="icon-chip">${icon(l.type)}</div>
+            <div class="card-body">
+              <div class="card-title">${l.title}</div>
+              <div>${typeBadge(l.type)}</div>
+            </div>
           </a>`
         )
         .join("")}
-    </div>`;
+    </div>`);
 }
 
 function findLineup(data, lineupId) {
@@ -158,6 +205,7 @@ function renderPictureGuide(l) {
 }
 
 async function renderLineupDetail(lineupId) {
+  showLoading();
   const data = await loadData();
   const l = findLineup(data, lineupId);
   if (!l) return renderNotFound();
@@ -168,7 +216,7 @@ async function renderLineupDetail(lineupId) {
     .map((s) => `<li>${s}</li>`)
     .join("");
 
-  APP.innerHTML = `
+  renderApp(`
     <div class="video-wrap">
       <iframe src="${youtubeEmbedSrc(l.video)}" title="${l.title}"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -182,12 +230,12 @@ async function renderLineupDetail(lineupId) {
     ${renderPictureGuide(l)}
 
     ${l.source_note ? `<div class="source-note">${l.source_note}</div>` : ""}
-  `;
+  `);
 }
 
 function renderNotFound() {
   setHeader("Not found", true);
-  APP.innerHTML = `<div class="empty">Couldn't find that. <a href="#/">Go back to maps</a>.</div>`;
+  renderApp(`<div class="empty">Couldn't find that. <a href="#/">Go back to maps</a>.</div>`);
 }
 
 // ---- Router -----------------------------------------------------------

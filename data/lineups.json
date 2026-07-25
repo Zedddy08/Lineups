@@ -1,6 +1,7 @@
 {
   "dust2": {
     "name": "Dust II",
+    "thumbnail": "images/maps/dust2.webp",
     "sides": {
       "t": {
         "name": "T Side",
@@ -72,6 +73,7 @@
   },
   "inferno": {
     "name": "Inferno",
+    "thumbnail": "images/maps/inferno.webp",
     "sides": {
       "t": {
         "name": "T Side",

@@ -1,14 +1,19 @@
 :root {
-  --bg: #0d1117;
+  --bg: #0a0d12;
+  --bg-elevated: #12161d;
   --bg-card: #161b22;
   --bg-card-hover: #1f2733;
-  --border: #2a323d;
-  --text: #e6edf3;
+  --border: #262d38;
+  --border-soft: rgba(255, 255, 255, 0.06);
+  --text: #f0f3f7;
   --text-dim: #8b949e;
   --accent: #dea528;
+  --accent-soft: rgba(222, 165, 40, 0.14);
   --smoke: #9aa3ad;
   --flash: #e8d24a;
-  --molotov: #e8622f;
+  --molotov: #ef6b3e;
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-card-lg: 0 16px 40px rgba(0, 0, 0, 0.45);
 }
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -18,8 +23,8 @@ html, body {
   padding: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  /* keeps the app from bouncing/scrolling like a webpage on iOS when used standalone */
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
   overscroll-behavior-y: none;
 }
 
@@ -27,6 +32,11 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   padding-bottom: env(safe-area-inset-bottom);
+  /* subtle radial glow behind everything — depth without a busy background */
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(222, 165, 40, 0.06), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
 }
 
 .topbar {
@@ -37,26 +47,34 @@ body {
   align-items: center;
   gap: 10px;
   padding: calc(14px + env(safe-area-inset-top)) 16px 14px;
-  background: rgba(13, 17, 23, 0.92);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
+  background: rgba(10, 13, 18, 0.78);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  border-bottom: 1px solid var(--border-soft);
 }
 
 .backBtn {
-  background: none;
-  border: none;
-  color: var(--text);
-  font-size: 22px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  color: var(--accent);
+  font-size: 18px;
+  font-weight: 700;
   line-height: 1;
-  padding: 4px 8px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 10px;
+  transition: transform 0.08s ease, background 0.12s ease;
 }
-.backBtn:active { background: var(--bg-card); }
+.backBtn:active { background: var(--bg-card-hover); transform: scale(0.92); }
 
 #pageTitle {
-  font-size: 19px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
   margin: 0;
 }
 
@@ -66,29 +84,36 @@ body {
   margin: 0 auto;
 }
 
+/* ---- Page transition: quick fade + rise, mimics an iOS push/pop ---- */
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+#app.page-enter { animation: pageIn 0.22s cubic-bezier(0.22, 1, 0.36, 1); }
+
+/* ---- Loading spinner (shown briefly on first data fetch) ---- */
+.spinner-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+}
+.spinner {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---- Generic grid / list layout ---- */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
 }
-
-.card {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 16px;
-  cursor: pointer;
-  text-decoration: none;
-  color: var(--text);
-  transition: background 0.12s ease, transform 0.06s ease;
-}
-.card:active { background: var(--bg-card-hover); transform: scale(0.98); }
-
-.card-title { font-size: 16px; font-weight: 700; }
-.card-sub { font-size: 13px; color: var(--text-dim); }
 
 .list {
   display: flex;
@@ -96,28 +121,123 @@ body {
   gap: 10px;
 }
 
+/* ---- Plain cards (sides, callouts, lineup list items) ---- */
+.card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(180deg, var(--bg-card), var(--bg-elevated));
+  border: 1px solid var(--border-soft);
+  border-radius: 16px;
+  padding: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.1s cubic-bezier(0.22, 1, 0.36, 1), background 0.12s ease, box-shadow 0.12s ease;
+}
+.card:active { background: var(--bg-card-hover); transform: scale(0.97); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+
+.card-body { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 0; }
+.card-title { font-size: 16px; font-weight: 700; letter-spacing: -0.01em; }
+.card-sub { font-size: 13px; color: var(--text-dim); }
+
+/* ---- Map tiles: full-bleed image cards, Apple-TV-app style ---- */
+.map-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.map-card {
+  position: relative;
+  display: block;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  text-decoration: none;
+  box-shadow: var(--shadow-card-lg);
+  border: 1px solid var(--border-soft);
+  transition: transform 0.12s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.map-card:active { transform: scale(0.97); }
+.map-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.05) contrast(1.05);
+}
+.map-card .scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,13,18,0) 35%, rgba(10,13,18,0.92) 100%);
+}
+.map-card .label {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 16px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.map-card .map-name {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+.map-card .chevron {
+  color: var(--accent);
+  font-size: 20px;
+  font-weight: 800;
+  opacity: 0.9;
+}
+
+/* ---- Icon chip used on side/callout cards ---- */
+.icon-chip {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+.icon-chip svg { width: 20px; height: 20px; }
+
+/* ---- Type badge (smoke / flash / molotov) with icon ---- */
 .badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  padding: 3px 8px;
+  padding: 4px 9px 4px 6px;
   border-radius: 999px;
   border: 1px solid currentColor;
+  vertical-align: middle;
 }
+.badge svg { width: 12px; height: 12px; }
 .badge.smoke { color: var(--smoke); }
 .badge.flash { color: var(--flash); }
 .badge.molotov { color: var(--molotov); }
 
+/* ---- Video ---- */
 .video-wrap {
   position: relative;
   width: 100%;
   padding-top: 56.25%; /* 16:9 */
-  border-radius: 14px;
+  border-radius: 16px;
   overflow: hidden;
   background: #000;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-card);
 }
 .video-wrap iframe {
   position: absolute;
@@ -129,20 +249,21 @@ body {
 
 .section-label {
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   color: var(--text-dim);
-  margin: 22px 0 10px;
+  margin: 24px 0 10px;
 }
 
 .note {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--accent-soft);
+  border: 1px solid rgba(222, 165, 40, 0.25);
   border-left: 3px solid var(--accent);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 12px 14px;
   font-size: 14px;
+  line-height: 1.4;
   color: var(--text);
   margin-bottom: 14px;
 }
@@ -158,19 +279,20 @@ body {
 }
 .steps li {
   counter-increment: step;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 12px 14px 12px 44px;
+  background: linear-gradient(180deg, var(--bg-card), var(--bg-elevated));
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  padding: 13px 14px 13px 46px;
   position: relative;
   font-size: 15px;
-  line-height: 1.4;
+  line-height: 1.45;
+  box-shadow: var(--shadow-card);
 }
 .steps li::before {
   content: counter(step);
   position: absolute;
-  left: 12px;
-  top: 12px;
+  left: 13px;
+  top: 13px;
   width: 22px;
   height: 22px;
   border-radius: 50%;
@@ -186,14 +308,15 @@ body {
 .lineup-image {
   display: block;
   width: 100%;
-  border-radius: 12px;
-  border: 1px solid var(--border);
+  border-radius: 14px;
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-card);
   margin-bottom: 6px;
 }
 
 .picture-slot {
   aspect-ratio: 16/9;
-  border-radius: 12px;
+  border-radius: 14px;
   border: 1px dashed var(--border);
   background: var(--bg-card);
   display: flex;
@@ -216,6 +339,6 @@ body {
 .empty {
   color: var(--text-dim);
   font-size: 15px;
-  padding: 40px 12px;
+  padding: 60px 12px;
   text-align: center;
 }
